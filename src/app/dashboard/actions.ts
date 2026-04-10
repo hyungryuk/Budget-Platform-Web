@@ -16,7 +16,7 @@ export async function addFinancialMessage(
   const text = (formData.get('text') as string)?.trim()
   if (!text) return { error: 'Message cannot be empty.' }
 
-  const res = await fetch(`https://${process.env.BACKEND_HOST}/messages`, {
+  const res = await fetch(`http://${process.env.BACKEND_HOST}/messages`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text, created_by: user.email }),
