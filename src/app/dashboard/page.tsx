@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { signout } from '@/app/auth/actions'
 import { redirect } from 'next/navigation'
+import { AddFinancialMessageModal } from '@/components/AddFinancialMessageModal'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -25,8 +26,13 @@ export default async function DashboardPage() {
         </div>
       </header>
       <main className="p-6">
-        <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
-        <p className="mt-1 text-gray-500">Your budget overview will appear here.</p>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
+            <p className="mt-1 text-gray-500">Your budget overview will appear here.</p>
+          </div>
+          <AddFinancialMessageModal />
+        </div>
       </main>
     </div>
   )
